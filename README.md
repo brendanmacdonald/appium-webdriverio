@@ -30,6 +30,7 @@ adb devices
 ```
 npm i -g appium
 ```
+8. For the ContactManager to successfully add a new contact, you'll need to manually configure a gmail address account on the device first.
 
 Tested against:
  - Android virtual devices

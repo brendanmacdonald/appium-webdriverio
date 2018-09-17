@@ -2,25 +2,20 @@ exports.config = {
     specs: [
         __dirname + '/tests/**'
     ],
-    exclude: [],
-    maxInstances: 10,
-    sync: true,
-    logLevel: 'silent',
-    coloredLogs: true,
-    deprecationWarnings: true,
-    bail: 0,
+    logLevel: 'error',
     screenshotPath: './errorShots/',
-    baseUrl: '',
-    waitforTimeout: 10000, // Default timeout for all waitFor* commands.
+    waitforTimeout: 10000,
     connectionRetryTimeout: 90000,
     connectionRetryCount: 3,
     services: ['appium'],
     capabilities: [{
-        deviceName: 'Nexus_5X_API_24',
-        platformVersion: '7.0',
-        platformName: 'android',
+        deviceName: 'Pixel_2_API_23',
+        platformVersion: '6.0',
+        platformName: 'Android',
         app: "./ContactManager.apk",
-        automationName: 'UiAutomator2'
+        automationName: 'UiAutomator2',
+        autoGrantPermissions: true,
+        fullReset: true
     }],
     appium: {
         waitStartTime: 6000,
@@ -28,18 +23,15 @@ exports.config = {
         logFileName: 'appium.log',
         args: {
             address: '127.0.0.1',
-            port: 4723,
             commandTimeout: '7200',
             sessionOverride: true,
             debugLogSpacing: true,
-            showIosLog: true
+            showIosLog: false
         }
     },
-    host: '127.0.0.1',
     port: 4723,
-    path: '/wd/hub',
     framework: 'mocha',
-    reporters: ['dot', 'spec'],
+    reporters: ['spec'],
     mochaOpts: {
         ui: 'bdd',
         timeout: 30000
